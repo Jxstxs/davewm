@@ -460,13 +460,13 @@
  * This patch takes precedence over ATTACHASIDE_PATCH.
  * https://dwm.suckless.org/patches/attachabove/
  */
-#define ATTACHABOVE_PATCH 1
+#define ATTACHABOVE_PATCH 0
 
 /* This patch adds new clients on top of the stack.
  * This patch takes precedence over ATTACHBELOW_PATCH.
  * https://dwm.suckless.org/patches/attachaside/
  */
-#define ATTACHASIDE_PATCH 0
+#define ATTACHASIDE_PATCH 1
 
 /* This patch adds new clients below the selected client.
  * This patch takes precedence over ATTACHBOTTOM_PATCH.
