@@ -398,6 +398,7 @@ static const char *const autostart[] = {
 	"dwmblocks", NULL,
     "dunst", NULL,
     "sxhkd", NULL,
+    "picom", NULL,
 	NULL /* terminate */
 };
 //#endif // COOL_AUTOSTART_PATCH
