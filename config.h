@@ -156,7 +156,7 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #if BAR_PANGO_PATCH
 static const char font[]                 = "monospace 10";
 #else
-static const char *fonts[]               = { "Monocraft Nerd Font:size=10:antialias=true:autohint=true" };
+static const char *fonts[]               = { "VictorMono Nerd Font:size=10:antialias=true:autohint=true" };
 #endif // BAR_PANGO_PATCH
 static const char dmenufont[]            = "monospace:size=10";
 
@@ -399,6 +399,7 @@ static const char *const autostart[] = {
     "dunst", NULL,
     "sxhkd", NULL,
     "picom", NULL,
+    "nitrogen", "--restore", NULL,
 	NULL /* terminate */
 };
 //#endif // COOL_AUTOSTART_PATCH
@@ -506,9 +507,10 @@ static const Rule rules[] = {
 
 #if MONITOR_RULES_PATCH
 #if PERTAG_PATCH
+// NOTE: Hier
 static const MonitorRule monrules[] = {
 	/* monitor  tag   layout  mfact  nmaster  showbar  topbar */
-	{  1,       -1,   6,      -1,    -1,      -1,      -1     }, // use a different layout for the second monitor
+	{  1,       -1,   0,      -1,     2,      -1,      -1     }, // use a different layout for the second monitor
 	{  -1,      -1,   0,      -1,    -1,      -1,      -1     }, // default
 };
 #else
@@ -867,7 +869,7 @@ static const char *dmenucmd[] = {
 	#endif // BAR_DMENUMATCHTOP_PATCH
 	NULL
 };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -905,7 +907,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_Return,     riospawn,               {.v = termcmd } },
 	{ MODKEY,                       XK_s,          rioresize,              {0} },
 	#endif // RIODRAW_PATCH
-	//{ MODKEY,                       XK_b,          togglebar,              {0} },
+	{ MODKEY|ShiftMask,             XK_b,          togglebar,              {0} },
 	#if TAB_PATCH
 	{ MODKEY|ControlMask,           XK_b,          tabmode,                {-1} },
 	#endif // TAB_PATCH
@@ -951,8 +953,8 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_i,          incnstack,              {.i = +1 } },
 	{ MODKEY|ControlMask,           XK_u,          incnstack,              {.i = -1 } },
 	#endif // FLEXTILE_DELUXE_LAYOUT
-	{ MODKEY,                       XK_h,          setmfact,               {.f = -0.05} },
-	{ MODKEY,                       XK_l,          setmfact,               {.f = +0.05} },
+	{ MODKEY,                       XK_h,          setmfact,               {.f = -0.02} },
+	{ MODKEY,                       XK_l,          setmfact,               {.f = +0.02} },
 	#if CFACTS_PATCH
 	{ MODKEY|ShiftMask,             XK_h,          setcfact,               {.f = +0.25} },
 	{ MODKEY|ShiftMask,             XK_l,          setcfact,               {.f = -0.25} },
